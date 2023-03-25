@@ -6,11 +6,14 @@ function Stock() {
     const params = useParams();
     const symbol = params.symbol
     console.log(symbol);
-    const stock = stocks.find(symbol => symbol === symbol)
-    const {name, lastPrice, change, high, low, open} = stock
+    const stock = stocks.find((s) => s.symbol === symbol)
+    // we use the s to symbolize the invididual stock and then we use dot notation to take the symbol of each stock and make sure its value is the same as the symbol parameter from the URL
+    const {lastPrice, change, high, low, open} = stock
+    console.log(stock);
   return(
     <div className="content">
-        <h1>{name}({symbol})</h1>
+      <h1>{stock.name}</h1>
+        <h1>({symbol})</h1>
         <p>Last Price: {lastPrice}</p>
         <p>Change: {change}</p>
         <p>High: {high}</p>
